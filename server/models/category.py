@@ -14,16 +14,55 @@ class Category(BaseModel):
     
     @validates('name')
     def validate_name(self, key, name):
+        """
+        Validates the category name field.
+        
+        Args:
+            key (str): The field name being validated.
+            name (str): The category name to validate.
+        
+        Returns:
+            str: The validated category name.
+        
+        Raises:
+            ValueError: If the name is too short or invalid.
+        """
         return self.validate_string_length('Category name', name, min_length=2)
         
     @validates('description')
     def validate_description(self, key, description):
+        """
+        Validates the category description field.
+        
+        Args:
+            key (str): The field name being validated.
+            description (str or None): The category description to validate.
+        
+        Returns:
+            str or None: The validated category description.
+        
+        Raises:
+            ValueError: If the description is too short when provided.
+        """
         return self.validate_string_length('Description', description, min_length=10, allow_none=True)
     
     def __repr__(self):
+        """
+        Returns a string representation of the Category object.
+        
+        Returns:
+            str: A formatted string showing the category name.
+        """
         return f'<Category {self.name}>'
         
     def to_dict(self):
+        """
+        Converts the Category object to a dictionary representation.
+        
+        Returns:
+            dict: A dictionary containing the category's data including id, name,
+                  description, and count of associated games.
+        """
         return {
             'id': self.id,
             'name': self.name,

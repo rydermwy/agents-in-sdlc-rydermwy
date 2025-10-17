@@ -6,6 +6,14 @@ from sqlalchemy.orm import Query
 games_bp = Blueprint('games', __name__)
 
 def get_games_base_query() -> Query:
+    """
+    Creates a base SQLAlchemy query for games with joined publisher and category data.
+    
+    Returns:
+        Query: A SQLAlchemy query object that includes Game, Publisher, and Category
+               tables joined with outer joins to handle cases where relationships
+               might be null.
+    """
     return db.session.query(Game).join(
         Publisher, 
         Game.publisher_id == Publisher.id, 
@@ -18,6 +26,13 @@ def get_games_base_query() -> Query:
 
 @games_bp.route('/api/games', methods=['GET'])
 def get_games() -> Response:
+    """
+    Retrieves all games from the database with their associated publisher and category information.
+    
+    Returns:
+        Response: A JSON response containing a list of all games, each with their
+                  id, title, description, publisher info, category info, and star rating.
+    """
     # Use the base query for all games
     games_query = get_games_base_query().all()
     
@@ -28,6 +43,17 @@ def get_games() -> Response:
 
 @games_bp.route('/api/games/<int:id>', methods=['GET'])
 def get_game(id: int) -> tuple[Response, int] | Response:
+    """
+    Retrieves a specific game by its ID with associated publisher and category information.
+    
+    Args:
+        id (int): The unique identifier of the game to retrieve.
+    
+    Returns:
+        tuple[Response, int] | Response: If game is found, returns a JSON response
+                                        containing the game data. If not found, returns
+                                        a JSON error response with 404 status code.
+    """
     # Use the base query and add filter for specific game
     game_query = get_games_base_query().filter(Game.id == id).first()
     
