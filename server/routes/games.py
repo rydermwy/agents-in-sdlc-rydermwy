@@ -78,8 +78,9 @@ def create_game() -> tuple[Response, int]:
         db.session.add(new_game)
         db.session.commit()
         
-        # Return created game
-        return jsonify(new_game.to_dict()), 201
+        # Return created game with relationships using base query for consistency
+        created_game_query = get_games_base_query().filter(Game.id == new_game.id).first()
+        return jsonify(created_game_query.to_dict()), 201
         
     except ValueError as e:
         db.session.rollback()
