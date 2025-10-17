@@ -2,11 +2,27 @@
 
 This repository contains the project for a 1 hour guided workshop to explore GitHub Copilot Agent Mode and related features in Visual Studio Code. The project is a website for a fictional game crowd-funding company, with a [Flask](https://flask.palletsprojects.com/en/stable/) backend using [SQLAlchemy](https://www.sqlalchemy.org/) and [Astro](https://astro.build/) frontend using [Svelte](https://svelte.dev/) for dynamic pages.
 
-## Start the workshop
+## 📚 Documentation
 
+### Workshop
 **To begin the workshop, start at [docs/README.md](./docs/README.md)**
 
-Or, if just want to run the app...
+### Technical Documentation
+**For developers working on the codebase, see [Technical Documentation](./docs/technical/README.md)**
+
+- 🚀 [Development Setup Guide](./docs/technical/development-setup.md) - Get started quickly
+- 🏗️ [Project Structure](./docs/technical/project-structure.md) - Understanding the codebase  
+- 🎨 [Component Library](./docs/technical/components.md) - Svelte component documentation
+- 🔌 [API Reference](./docs/technical/api-reference.md) - Backend API documentation
+
+### Component Storybook
+Interactive component documentation and testing:
+```bash
+cd client && npm run storybook
+```
+Visit http://localhost:6006 to explore components.
+
+## Quick Start
 
 ## Launch the site
 
