@@ -182,4 +182,4 @@ After setting up the development environment:
 1. Review the [Project Structure Guide](./project-structure.md)
 2. Explore [Component Documentation](./components.md)
 3. Check out the [API Reference](./api-reference.md)
-4. Read the [Testing Guide](./testing.md)
+4. Run the existing tests to understand the testing patterns

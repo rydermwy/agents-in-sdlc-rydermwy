@@ -29,8 +29,8 @@ Tailspin Toys is a full-stack web application built with modern technologies:
 - [Backend Architecture](./backend-architecture.md) - Flask patterns and structure
 
 ### Testing & Quality
-- [Testing Guide](./testing.md) - Unit, integration, and E2E testing
-- [Code Standards](./code-standards.md) - Coding conventions and best practices
+- Testing: See E2E tests in `client/e2e-tests/` and backend tests in `server/tests/`
+- Code Standards: Follow existing patterns shown in component and API documentation
 
 ### Deployment & Operations
 - [Deployment Guide](./deployment.md) - Production deployment instructions
@@ -66,7 +66,7 @@ cd client && npm run build
 
 ## 🤝 Contributing
 
-Please refer to the [Code Standards](./code-standards.md) and [Testing Guide](./testing.md) before contributing.
+Please follow the patterns shown in the existing codebase and ensure all tests pass before contributing.
 
 ## 🔗 External Resources
 

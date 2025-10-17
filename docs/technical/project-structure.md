@@ -330,4 +330,4 @@ After understanding the project structure:
 1. Review [Development Setup](./development-setup.md)
 2. Explore [Component Documentation](./components.md)  
 3. Study [API Reference](./api-reference.md)
-4. Check [Testing Guide](./testing.md)
+4. Examine existing tests in `server/tests/` and `client/e2e-tests/`
